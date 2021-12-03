@@ -1,0 +1,647 @@
+/*--------------------------------------------------------- */
+/**
+*
+* @project Diversos.
+* @version 1.0.
+* @package layout.
+* @copyright 20XX.
+* 
+* @colordef ; 
+* @colordef ;  
+* @colordef ; 
+/*--------------------------------------------------------- */
+/*INICIO DO MEU MEU CSS*/
+/*--------------------------------------------------------- */
+.margin_top_1x{margin-top: 10px;}
+.margin_top_2x{margin-top: 20px;}
+.margin_top_3x{margin-top: 30px;}
+.margin_top_4x{margin-top: 40px;}
+.margin_top_5x{margin-top: 50px;}
+.margin_top_6x{margin-top: 60px;}
+.margin_top_7x{margin-top: 70px;}
+.margin_left{margin-left: 60px}
+.no_margin{margin: 0!important}
+.no_margin_left{margin-left: 0!important}
+.no_margin_right{margin-right: 0!important}
+.normal_size{font-size: 1em;}
+/* p{font-size: 1.2em;}
+h1{font-size: 3em}
+h2{font-size: 2.8em}
+h3{font-size: 2.6em}
+h4{font-size: 2.2em}
+h5{font-size: 1.6em}
+h6{font-size: 1.3em} */
+
+.margin_left_min{
+    margin-left: 10px
+}
+
+.btn-sm{
+    margin: 2px 0;
+}
+
+/*BASICOS*/
+.i{
+    background-color: blueviolet;
+    height: 300px
+}
+.b{
+    background-color: salmon;
+    height: 50px;
+}
+.a{
+    height: 120px;
+    background-color: blue
+}
+.k{
+    background-color: steelblue;
+    height: 200px;
+}
+.c{
+    background-color: cadetblue;
+    height: 100px;
+}
+
+/*-----------------------------------*\
+    $INTERFACE
+\*-----------------------------------*/
+.readonly{
+    cursor: not-allowed;
+}
+
+.text_grey{
+    color: #848688!important
+}
+
+.bg_card,.bg_white{
+    background-color: white
+}
+
+.is-invalid::-webkit-input-placeholder {
+    color: red;
+}
+
+.is-invalid:-moz-placeholder { /* Firefox 18- */
+    color: red;  
+}
+
+.is-invalid::-moz-placeholder {  /* Firefox 19+ */
+    color: red;  
+}
+
+.is-invalid:-ms-input-placeholder {  
+    color: red;  
+}
+input.is-invalid{
+    color: red!important;
+}
+
+.input-invalido{
+    color: red!important; 
+    border-color: #dc3545!important;
+}
+.input-valido{
+    color: #28a74!important; 
+    border-color: #28a74!important;
+}
+/*-----------------------------------*\
+    $EDITIONS TEXT
+\*-----------------------------------*/
+.text_white{
+    color: white!important
+}
+.text_black{
+    color: black
+}
+.text_sucess{
+    color: #28a745
+}
+.text_error{
+    color: #dc3545
+}
+.bold{
+    font-weight: bold;
+}
+.italic{
+    font-style: italic;
+}
+.pointer{
+    cursor: pointer
+}
+/*-----------------------------------*\
+  $LOADER
+\*-----------------------------------*/
+#loader>img{
+    margin: 0 auto;
+    height: 110px;
+}
+#loader{
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    padding-top: 42vh;
+    padding-bottom: 30vh;
+    opacity: 0.8;
+    position: fixed;
+    z-index: 10000
+}
+
+/*-----------------------------------*\
+  $HEADER
+\*-----------------------------------*/
+.user-menu a{
+    padding-left: 10px!important;
+    padding-right: 10px!important;
+}
+
+a.dropdown-item:hover p{
+    color: #999999!important
+}
+
+a.dropdown-item:hover,.user-menu a:hover{
+    background-color: #e6e7e8!important
+}
+
+.menu-title{
+    padding-top: 5px!important
+}
+.logo_top img{
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+/*-----------------------------------*\
+  $EDTIONS OF MENU
+\*-----------------------------------*/
+.sub-menu li:hover i.fa{
+    color: #25AAE1!important
+}
+/*-----------------------------------*\
+  $BODY
+\*-----------------------------------*/
+#name_user{
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 5px
+}
+.chosen-container{
+    font-size: 15px
+}
+.box_right .btn-danger{
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 5px
+}
+.box_right .btn-info{
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 3px;
+    border-radius: 5px
+}
+.box_right input{
+    position: absolute;
+    margin-top: -25px
+}
+.box_right{
+    float: right;
+}
+.check_form {
+    margin-top: 38px
+}
+.check_form input,.check_form label{
+    float: left;
+    display: block
+}
+.check_form input{
+    margin: 0px 0 0 20px;
+    width: 30px;
+    height: 30px
+}
+
+ul.pagination li{
+    margin-top: 10px;
+    background-color: #999999
+}
+.paginate_button {
+    padding: 0!important;
+    border: 0!important;
+}
+.paginate_button a{
+    padding: 8px 14px;
+    background-color: #e6e7e8
+}
+.paginate_button a:hover{
+    color: white!important;
+    background-color: #999999!important;
+}
+.dataTables_length{
+    margin-bottom: 5px
+}
+
+.danger_tb{
+    background-color: #F2DEDE!important
+}
+
+.sucess_tb{
+    background-color: #D9EDF7!important
+}
+
+.warning_tb{
+    background-color: #ffffcc!important
+}
+
+.finalizado_tb{
+    background-color: #F2DEDE!important
+}
+
+/*-----------------------------------*\
+  $END EDTIONS BODY
+\*-----------------------------------*/
+
+/*-----------------------------------*\
+  $FOOTER
+\*-----------------------------------*/
+
+/*-----------------------------------*\
+  $BEGIN EDTIONS PAGE .php
+\*-----------------------------------*/
+
+/*-----------------------------------*\
+  $END EDTIONS PAGE .php
+\*-----------------------------------*/
+
+
+/*--------------------------------------------------------- */
+/*>>>>>>>>>>>>>>>>>Esquema de Cores<<<<<<<<<<<<<<<<<<    1  */
+/*--------------------------------------------------------- */
+
+
+.navbar .navbar-nav li > a:hover, .navbar .navbar-nav li > a:hover .menu-icon {
+    color: #25AAE1!important;
+}
+
+.margin_center{
+    margin: 0 auto;
+}
+
+.switch.switch-text .switch-label::before {
+    right: 1px;
+    color: #BB3437;
+    content: attr(data-off);
+}
+
+.switch.switch-text .switch-label {
+    font-size: 13px;
+    background-color: #fff;
+    border: 1px solid #BB3437;
+    border-radius: 2px;
+}
+
+.card h3 {
+    font-size: 1.8rem!important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #BB3437;
+}
+
+.btn_link{
+    border: thin solid #848688  
+}
+
+.btn_link:focus, .btn_link:hover {
+    background-color: #848688;
+    color: white;
+}
+
+.badge {
+    font-size: 86%;
+    font-weight: 400;
+}
+
+/* --ajuste especificos-- */
+.margin_top{
+    margin-top: 20px;
+}
+.margin_bottom{
+    margin-bottom: 20px;
+}
+
+.no_margim{
+    margin: 0!important;
+}
+
+.border_bt_tb{
+    border-bottom: 3px #DEE2E6 solid;
+}
+
+.text_center{
+    text-align: center;
+}
+
+.stat-widget-one .stat-content{
+    margin-left: 0;
+    width: 100%;
+}
+
+.number_lg{
+    font-size: 1.2em;
+}
+
+#index a:hover div > .card{
+    background-color: #e6e7e8;
+}
+
+.stat-widget-one .stat-text {
+    font-size: 18px;
+}
+
+#index a:hover div > .stat-text{
+    color: #000;
+}
+
+/* #right-panel{
+    background: url('./images/bg_login.jpg') fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+} */
+
+.hidden-md{
+    display: none
+}
+
+.margin_top_card{
+    margin-top: 20px;
+}
+
+/* ///cores dos botoes do index */
+
+.border_bt1{
+    color: #007bff!important;
+    border-color: #007bff!important;
+}
+
+.border_bt2{
+    color: #BB3437!important;
+    border-color: #BB3437!important;
+}
+
+.border_bt3{
+    color: #25AAE1!important;
+    border-color: #25AAE1!important;
+}
+
+.border_bt4{
+    color: #28a745!important;
+    border-color: #28a745!important;
+}
+
+.border_bt5{
+    color: #8A2BE2!important;
+    border-color: #8A2BE2!important;
+}
+
+.border_bt6{
+    color: #008B8B!important;
+    border-color: #008B8B!important;
+}
+
+.border_bt7{
+    color: #DAA520!important;
+    border-color: #DAA520!important;
+}
+
+.border_bt8{
+    color: #4B0082!important;
+    border-color: #4B0082!important;
+}
+
+.border_bt9{
+    color: #A0522D!important;
+    border-color: #A0522D!important;
+}
+
+.border_bt10{
+    color: #66CDAA!important;
+    border-color: #66CDAA!important;
+}
+
+/*--------------------------------------------------------- */
+/*>>>>>>>>>>>>>>>>>Esquema de Cores<<<<<<<<<<<<<<<<<<    2  */
+/*--------------------------------------------------------- */
+
+.navbar .navbar-nav li > a:hover, .navbar .navbar-nav li > a:hover .menu-icon {
+    color: #25AAE1 !important;
+}
+
+.menutoggle {
+    background: #25AAE1!important;
+}
+
+.menutoggle:hover {
+    background: #03608E!important;
+}
+
+#payment-button{
+    background-color: #F7E3A4;
+    color: black;
+    border-color: rgb(250, 221, 127);
+}
+
+#payment-button:hover{
+    background-color: #25AAE1;
+    color: #F7E3A4;
+    border-color: rgb(250, 221, 127);
+}
+
+.btn-info{
+    /* color: #000;
+    background-color: #F7E3A4;
+    border-color: rgb(250, 221, 127); */
+}
+
+.btn-info:hover,.btn-info:focus{
+    /* color: #F7E3A4;
+    background-color: #272C33;
+    border-color: rgb(250, 221, 127); */
+}
+
+div.fadeIn{
+    margin-top: 15px;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child:before{
+    background-color: #25AAE1!important;
+}
+
+
+/* LOGIN///////////////////////////////// */
+.btn-login {
+    color: #fff;
+    background-color: #25AAE1;
+    border-color: #03608E;
+}
+
+.btn-login:hover {
+    color: #fff;
+    background-color: #272C33;
+    border-color: #25AAE1;
+}
+
+.text_orange{
+    color: #25AAE1;
+}
+
+.form-title{
+    color: white;
+    font-size: 24px;
+}
+
+/* PARA IMAGENS DO LOGIN ESCURAS */
+form.login input[type="text"], form.login input[type="password"] {
+    border-bottom: 1px solid #FFFFFF;
+    color: white;
+}
+
+/* PARA IMAGENS DO LOGIN CLARAS */
+/* form.login input[type="text"], form.login input[type="password"] {
+    border-bottom: 1px solid #000;
+    color: black;
+} */
+
+.formLogin{
+    padding: 30px 0;
+    background-color: rgba(178, 178, 178, 0.50);
+    margin: 0 auto;
+    width: 27%;
+    border-radius: 20px;
+}
+
+/*-----------------------------------*\
+  $MEDIA QUERIES
+\*-----------------------------------*/
+
+@media only screen and (min-width: 1800px){}
+@media (min-width:1600px) and (max-width: 1800px){}
+@media (min-width:1500px) and (max-width: 1600px){}
+@media (min-width:1400px) and (max-width: 1500px){}
+@media (min-width:1025px) and (max-width: 600px){
+    li.menu-item-has-children a{  
+            font-size: 10px!important;
+    }  
+}
+@media only screen and (max-width: 1300px){}
+@media only screen and (max-width: 1250px){}
+@media only screen and (max-width: 1199px){}
+@media only screen and (max-width: 1025px){
+    
+}
+@media only screen and (max-width: 1199px){}
+@media only screen and (max-width: 991px){
+    * {
+        font-size: 13px;
+    } 
+    .no_row_sm{margin-left: 0px!important;margin-right: 0px!important;}
+}
+@media only screen and (max-width: 767px){
+    * {
+        font-size: 12px;
+    } 
+    .no_row_xs{margin-left: 0px!important;margin-right: 0px!important;}
+    .text-right-xs{text-align: right;}
+    .text-left-xs{text-align: left;}
+    .text-center-xs{text-align: center;}
+    .hidden-xs{
+        display: none
+    }
+    #codPessoa{
+        width: 100%!important 
+    } 
+    .form-check-input {
+     position: relative!important; 
+     margin: 0!important;
+    }
+    .no_flex_md{
+        display: block;
+    }
+    .hidden-md{
+        display: inline-block;
+    }
+    .margin_left_xs{
+        padding-left: 10px;
+    }
+    .stat-widget-one .stat-content{
+        width: auto;
+    }
+    .stat-widget-one .stat-text {
+        margin-top: 10px;
+    }
+    .margin_top_card{
+        margin-top: 5px;
+    }
+}
+.menu-title {
+    padding-top: 1px!important;
+}
+@media only screen and (max-width: 571px){
+    .logo_top img{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        height: 30px
+    }
+
+    .menu-title {
+        padding-top: 0px!important;
+    }
+
+    .text_right_xs{
+        text-align: right!important;
+    }
+    
+    .right_xs{
+        float: right;
+    }
+
+    .margin_bottom {
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 320px){}
+
+.form-check-label {
+    margin-left: 30px;
+}
+
+select[readonly] {
+    background: #eee; /*Simular campo inativo - Sugestão @GabrielRodrigues*/
+    pointer-events: none;
+    touch-action: none;
+  }
+
+
+
+.bg-f1 {
+    background-color: #C6E0B4;
+}
+
+
+.bg-f2 {
+    background-color: #BDD7EE;
+}
+
+
+.bg-f3 {
+    background-color: #fcdf82;
+}
+
+div.dataTables_wrapper {
+    /* width: 800px; */
+    margin: 0 auto;
+}
+/*--------------------------------------------------------- */
+/*FIM DO MEU CSS*/
+/*--------------------------------------------------------- */
