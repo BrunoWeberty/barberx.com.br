@@ -76,23 +76,25 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label for="idAgendamento" class="control-label mb-1">Vincular Agendamento:</label>
-                                    {{-- campo apenas para salvar o valor total do agendamento --}}
-                                    <input type="hidden" value="0" id="totalAgendamento" name="totalAgendamento">
-                                    <select id="idAgendamento" name="idAgendamento" data-placeholder="Selecione o Cliente para realizar a venda..." class="standardSelect required"  onchange="buscaAgendamento();">
-                                        <option value="">Nenhum</option>
-                                        @foreach ($agendamentos as $row)
-                                            @if($row->idAgendamento == $venda->idAgendamento)
-                                            <option value="{{$row->idAgendamento}}" selected="selected">{{$row->cliente}} - R$ {{ number_format($row->total,2,",",".") }} - <?= date("d/m/Y H:i", strtotime($row->dataHora)) ?></option>
-                                            @else
-                                            <option value="{{$row->idAgendamento}}">{{$row->cliente}} - R$ {{ number_format($row->total,2,",",".") }} - <?= date("d/m/Y H:i", strtotime($row->dataHora)) ?></option>
-                                            @endif
-                                        @endforeach
-                                    </select>
+                            @if($venda->idVenda == '')
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="idAgendamento" class="control-label mb-1">Vincular Agendamento:</label>
+                                        {{-- campo apenas para salvar o valor total do agendamento --}}
+                                        <input type="hidden" value="0" id="totalAgendamento" name="totalAgendamento">
+                                        <select id="idAgendamento" name="idAgendamento" data-placeholder="Selecione o Cliente para realizar a venda..." class="standardSelect required"  onchange="buscaAgendamento();">
+                                            <option value="">Nenhum</option>
+                                            @foreach ($agendamentos as $row)
+                                                @if($row->idAgendamento == $venda->idAgendamento)
+                                                <option value="{{$row->idAgendamento}}" selected="selected">{{$row->cliente}} - R$ {{ number_format($row->total,2,",",".") }} - <?= date("d/m/Y H:i", strtotime($row->dataHora)) ?></option>
+                                                @else
+                                                <option value="{{$row->idAgendamento}}">{{$row->cliente}} - R$ {{ number_format($row->total,2,",",".") }} - <?= date("d/m/Y H:i", strtotime($row->dataHora)) ?></option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="idPromocao" class="control-label mb-1">Promoção:</label>
@@ -116,7 +118,7 @@
                                     <div class="col col-md-12">
                                         <div class="input-group">
                                             <div class="input-group-addon">R$</div>
-                                            <input value="{{$venda->total}}" readonly min="0" id="total" name="total" type="number" class="form-control required" placeholder="9,99">
+                                            <input value="{{ number_format($venda->total,2,",",".") }}" readonly min="0" id="total" name="total" type="text" class="form-control required" placeholder="9,99">
                                         </div>
                                     </div>
                                 </div>

@@ -165,9 +165,14 @@ date_default_timezone_set('America/Sao_Paulo');
                             </ul>
                         </li><span class="hidden-xs"><hr/></span>
                         <h3 class="menu-title"></h3>
-
+                        
                         <li> 
                             <a href="relatorio-vendas"> <i class="menu-icon fa fa-file-text-o"></i>Relatório Vendas</a>
+                        </li><span class="hidden-xs"><hr/></span>
+                        <h3 class="menu-title"></h3>
+
+                        <li> 
+                            <a href="grafico"> <i class="menu-icon fa fa-bar-chart-o"></i>Gráfico Vendas</a>
                         </li><span class="hidden-xs"><hr/></span>
                         @endif
 
@@ -257,14 +262,23 @@ date_default_timezone_set('America/Sao_Paulo');
                             <div class="user-menu dropdown-menu">
                                 @guest
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-
                                 <a class="nav-link" href="home"></a>
                                 @else 
+                                @if(Auth::user()->tipo == 'c')
+                                    <a class="nav-link" ><i class="fa fa-flag"></i>Cliente</a>
+                                @elseif(Auth::user()->tipo == 'f')
+                                    <a class="nav-link" ><i class="fa fa-flag"></i>Funcionário</a>
+                                @else
+                                    <a class="nav-link" ><i class="fa fa-flag"></i>Administrador</a>
+                                @endif
                                 <!--<a class="nav-link" href="#"><i class="fa fa- user"></i>Meus Dados</a>-->
                                 @if(Auth::user()->tipo == 'g')  
                                     @if(!isset(explode('/', Request::url())[3]) || (isset(explode('/', Request::url())[3]) && explode('/', Request::url())[3] == 'home') || (isset(explode('/', Request::url())[3]) && explode('/', Request::url())[3] == 'index'))
                                         <a class="nav-link pointer" data-toggle="modal" data-target="#configModal" ><i class="fa fa -cog"></i>Configurações</a>
                                     @endif
+                                @endif
+                                @if(Auth::user()->tipo == 'c')
+                                    <a class="nav-link" href="/usuario/{{Auth::user()->id}}" ><i class="fa fa-user"></i> Meus dados</a>
                                 @endif
                                 <a class="nav-link" href="#" style="display: none;"><i class="fa fa- user"></i>Notificações <span class="count">13</span></a>
                                 <a class="nav-link pointer" data-toggle="modal" data-target="#mediumModal" ><i class="fa fa -cog"></i>Sobre</a>

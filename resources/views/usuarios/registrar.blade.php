@@ -72,27 +72,33 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-3">
-                                        <div class="form-group has-success ">
-                                            <label for="tipo" class="control-label mb-1">Tipo:</label>
-                                            <select required="" class="form-control" name="tipo">
-                                                <option></option>
-                                                <option value="g" {{($usuario->tipo == 'g'  ? 'selected' : '')}}>Administrador</option>
-                                                <option value="f" {{($usuario->tipo == 'f'  ? 'selected' : '')}}>Funcionário</option>
-                                                <option value="c" {{($usuario->tipo == 'c'  ? 'selected' : '')}}>Cliente</option>
-                                            </select>
+                                    @if(Auth::user()->tipo <> 'c')
+                                        <div class="col-sm-3">
+                                            <div class="form-group has-success ">
+                                                <label for="tipo" class="control-label mb-1">Tipo:</label>
+                                                <select required="" class="form-control" name="tipo">
+                                                    <option></option>
+                                                    <option value="g" {{($usuario->tipo == 'g'  ? 'selected' : '')}}>Administrador</option>
+                                                    <option value="f" {{($usuario->tipo == 'f'  ? 'selected' : '')}}>Funcionário</option>
+                                                    <option value="c" {{($usuario->tipo == 'c'  ? 'selected' : '')}}>Cliente</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="status" class="control-label mb-1">Status:</label>
-                                            <label class="switch switch-text switch-info switch-pill">
-                                                <input type="checkbox" name="status" value="a" id="status" class="switch-input" @if($usuario->status == 'a' || $usuario->id == null)checked="true"@endif > 
-                                                <span data-on="A" data-off="I" class="switch-label"></span> <span class="switch-handle"></span>
-                                            </label>
-                                            <p class="small">A: Ativo, I: Inativo</p>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="status" class="control-label mb-1">Status:</label>
+                                                <label class="switch switch-text switch-info switch-pill">
+                                                    <input type="checkbox" name="status" value="a" id="status" class="switch-input" @if($usuario->status == 'a' || $usuario->id == null)checked="true"@endif > 
+                                                    <span data-on="A" data-off="I" class="switch-label"></span> <span class="switch-handle"></span>
+                                                </label>
+                                                <p class="small">A: Ativo, I: Inativo</p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @else
+                                        {{-- ou seja é usuário cliente entao vamos exibir os campos hidden --}}
+                                        <input type="hidden" name="status" value="{{$usuario->status}}" id="status" class="switch-input"  > 
+                                        <input type="hidden" name="tipo" value="{{$usuario->tipo}}" id="tipo" class="switch-input" > 
+                                    @endif
                                     <div class="col-sm-6">
                                         <div class="form-group has-success ">
                                             <label for="endereco" class="control-label mb-1">Endereço:</label>

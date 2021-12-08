@@ -30,6 +30,9 @@ $(function () {
                             <i class="fa fa-google-plus"></i> 
                             <span class="text_white">Entrar com Google</span>
                         </a>
+                        <div class="text-center ">
+                            <a href="/esqueceu-senha">Esqueceu sua senha?</a>
+                        </div>
                         <div class="remember-forgot">
                             <div class="row">
                                 <div class="col-md-6">

@@ -34,7 +34,7 @@
                             <th>Observações</th>
                             <th>Total</th>
                             <th>Status</th>
-                            <th>Editar</th>
+                            {{-- <th>Editar</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -70,18 +70,14 @@
                             @else
                             <td><span class="badge badge-warning">Agendado</span></td>
                             @endif
-                            <td>
-                                @if ($row->status == 'a')
+                            {{-- <td>
                                 <a href="agendamento/{{$row->idAgendamento }}">
                                     <div class="btn btn-sm btn-outline-primary">
-                                        <i class="fa-pencil-square-o fa"></i>
+                                        <i class="fa-pencil-square-o fa"></i> 
                                         Editar
                                     </div>
                                 </a>
-                                @else
-                                {{-- Impossível editar pois este agendamento já foi cancelado pelo administrador. --}}
-                                @endif
-                            </td>
+                            </td> --}}  
                         </tr>
                         @endforeach
                     </tbody>
@@ -124,7 +120,7 @@
                     </div>
                     <div class="row">
                         <hr>
-                    </div>
+                    </div> 
                     <div class="row mt-3">
                         @if ($agendamento->count() == 0)
                             <div class="col-6 offset-3">

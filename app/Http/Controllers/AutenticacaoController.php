@@ -98,5 +98,45 @@ class AutenticacaoController extends Controller
         Auth::logout();
         return redirect(route('login'));
     }
+
+    public function esqueceuSenha(){
+        return view('autenticacao.esqueceu-senha')->with('message', 'Informe seu e-mail de cadastro para prosseguir.');
+    }
+
+    public function enviaEmail(Request $request){
+        // vamos verificar se o email do usuario existe
+        $usuario = DB::table('usuario')
+                ->select('usuario.*')
+                ->where('email', '=', $request->get('email'))
+                ->first();
+        if (isset($usuario->email)){
+            /* devemos enviar o email */
+            $token = rand(100000, 999999);
+            DB::table('usuario')->where('id', '=', $usuario->id)->update(['remember_token' => $token]);
+            $ret = FuncoesController::enviaRecuperacaoSenha($token, $usuario->email, $usuario->nome);
+            return view('autenticacao.valida-codigo')->with('message', 'Confira seu e-mail e informe o código recebido, para recuperar sua senha.');
+        }else{
+            return view('autenticacao.esqueceu-senha')->with('message', 'O e-mail informado não existe em nossa base de dados.');
+        }
+    }
+
+    public function validaCodigo(Request $request){
+        // vamos verificar se o codigo do usuario existe
+        $usuario = DB::table('usuario')
+                ->select('usuario.*')
+                ->where('remember_token', '=', $request->get('cod'))
+                ->first();
+        if (isset($usuario->email)){
+            /* limpando o token */
+            DB::table('usuario')->where('id', '=', $usuario->id)->update(['remember_token' => '']);
+            /* redirecionando para a edição do usuario */
+            $usuarioLogado = Usuario::where(['id' => $usuario->id])->first();
+            Auth::login($usuarioLogado);
+            return redirect(route('usuario',[$usuario->id]));
+            // return \Redirect::route('usuario', [$usuario->id]);
+        }else{
+            return view('autenticacao.valida-codigo')->withErrors('O código informado não é válido! Favor verificar e tentar novamente.');
+        }
+    }
     
 }

@@ -95,7 +95,7 @@ class VendaController extends Controller
                 ->join('servico','servico.idServico','=','servagendamento.idServico')
                 ->select('servagendamento.idServico','servico.descricao','servico.valor')
                 ->get();
-            $venda->obs = $venda->obs . ' - Serviços: ';
+            $venda->obs = $venda->obs . ' | Agendamento: ' . $agendamento->idAgendamento . ' - Serviços: ';
             foreach($servicosAgend as $serv){
                 $venda->obs = $venda->obs . ' | ' . $serv->descricao . ' - R$' . number_format($serv->valor, 2, ',', ' ');
             }

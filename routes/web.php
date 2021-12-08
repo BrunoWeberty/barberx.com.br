@@ -28,6 +28,9 @@ Route::get('/logout', 'AutenticacaoController@logout')->name('logout');
 Route::get('/sair', 'AutenticacaoController@sair')->name('sair');
 Route::get('/registrar', 'AutenticacaoController@registrar')->name('registrar');
 Route::post('/registrar/salvar', 'UsuarioController@registrarSalvar')->name('registrarSalvar');
+Route::get('/esqueceu-senha', 'AutenticacaoController@esqueceuSenha');
+Route::post('/enviar-recuperacao', 'AutenticacaoController@enviaEmail');
+Route::post('/valida-codigo', 'AutenticacaoController@validaCodigo');
 
 Route::get('login/google', 'SocialiteController@redirectToProvider');
 Route::get('login/google/callback', 'SocialiteController@handleProviderCallback');
@@ -118,6 +121,8 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('relatorio-vendas','HomeController@relatorioVendas');
     Route::post('filtra-vendas','HomeController@filtraVendas');
+    Route::get('grafico','RelatorioController@viewGrafico');
+    Route::post('filtra-grafico','RelatorioController@filtraGrafico');
 
     /*-----------------------------------*\
         $ROTAS Serviço

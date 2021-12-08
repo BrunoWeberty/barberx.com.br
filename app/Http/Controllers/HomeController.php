@@ -140,6 +140,7 @@ class HomeController extends Controller
             }else{
                 $vend->promocao = '';
             }
+            // dd($vend->obs);
         }
         return view('relatorio.lista', array('vendas' => $vendas));
     }

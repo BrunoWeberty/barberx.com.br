@@ -82,7 +82,7 @@
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="hora" class="control-label mb-1">Horário:</label>
-                                    <select id="hora" name="hora" class="required form-control" >
+                                    <select id="hora" name="hora" class="required form-control" onchange="validaAgendamento();">
                                         @if ($agendamento->idAgendamento <> '')
                                             <option value="{{ date('H:i', strtotime( $agendamento->dataHora )) }}">{{ date('H:i', strtotime( $agendamento->dataHora )) }}</option>
                                         @else
@@ -178,6 +178,7 @@
             success: function(response) {
                 var retorno = JSON.parse(response);
                 $("#hora").html('');
+                $("#hora").append('<option value="">Selecione</option>');
                 for (var i = 0, l = retorno.length; i < l; i++ ) {
                     if (retorno[i] != ''){
                         $("#hora").append('<option value="' + retorno[i] + '">' + retorno[i] + '</option>');
@@ -191,5 +192,18 @@
             }
         })
     }
+
+    /* valida a data informada e verifica se é maior que hoje */
+    function validaAgendamento(){
+        var dataHoraAtual = new Date();
+        var dataHoraAgend = new Date($("#data").val() + ' ' + $("#hora").val());
+        console.log(dataHoraAgend.getTime());
+        if (dataHoraAtual.getTime() > dataHoraAgend.getTime()) {
+            alert('Atenção! A data/hora do agendamento já passou, favor verificar!');
+            $("#hora").html('');
+            $("#hora").append('<option value="">Selecione</option>');
+        }
+    }
+
 </script>
 @stop

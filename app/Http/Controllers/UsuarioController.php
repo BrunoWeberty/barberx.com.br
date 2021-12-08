@@ -22,14 +22,14 @@ class UsuarioController extends Controller
 
     public function editar($id = 0)
     {
-       $this->authorize('update', Usuario::class);
+    //    $this->authorize('update', Usuario::class);
         $usuario = Usuario::find($id);
         return view('usuarios.editar', compact('usuario'));
     }
 
     public function atualizar(Request $request, $id)
     {
-        $this->authorize('update', Usuario::class);
+        // $this->authorize('update', Usuario::class);
         $dados = $request->all();
         $usuario = Usuario::find($id);
 
@@ -54,7 +54,7 @@ class UsuarioController extends Controller
 
     public function salvar(Request $request)
     {
-        $this->authorize('create', Usuario::class);
+        // $this->authorize('create', Usuario::class);
         if ($request->get('id') == null) { 
             $usuario = new Usuario();
         } else {
@@ -79,7 +79,13 @@ class UsuarioController extends Controller
 
         try{
             $usuario->save();
-            return redirect()->action('UsuarioController@listar');
+            if (Auth::user()->tipo == 'c'){
+                return redirect()
+                    ->route('home')
+                    ->with('message', 'Informações atualizadas com sucesso!');
+            }else{
+                return redirect()->action('UsuarioController@listar');
+            }
         }catch(\Exception $e){
             if ($e->getCode() == 23000){
                 return redirect()
@@ -102,7 +108,6 @@ class UsuarioController extends Controller
             $usuario = Usuario::Where('id', $request->get('id'))->first();
         }
         
-        
         $usuario->nome = $request->get('nome');
         $usuario->email = $request->get('email');
         $usuario->cpf = $request->get('cpf');
@@ -120,6 +125,7 @@ class UsuarioController extends Controller
 
         try{
             $usuario->save();
+            FuncoesController::enviaEmailBemVindo($usuario->email, $usuario->nome);
             return redirect()
                     ->route('login')
                     ->with('message', 'Cadastro realizado com sucesso, realize o login para continuar!');
@@ -174,11 +180,18 @@ class UsuarioController extends Controller
         }else{
             dd('não existe');
         } */
-        $this->authorize('create', Usuario::class);
+        // $this->authorize('create', Usuario::class);
         if ($id == null) {
             $usuario = new Usuario();
         } else {
-            $usuario = Usuario::Where('id', $id)->first();
+            if (Auth::user()->tipo == 'c'){
+                $usuario = DB::table('usuario')
+                ->where('usuario.id', '=', Auth::user()->id) 
+                ->select('usuario.*')
+                ->first();  
+            }else{
+                $usuario = Usuario::Where('id', $id)->first();
+            }
         }
         return view('usuarios.registrar', array('usuario' => $usuario));
     }
